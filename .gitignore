@@ -68,4 +68,22 @@ reports/
 .DS_Store
 
 # Windows
-Thumbs.db 
+Thumbs.db
+
+# DVC
+.dvc/tmp
+.dvc/cache
+*.dvc/cache
+*.dvc/tmp
+.dvc/config.local
+.dvc/plots
+.dvc/updater
+
+# Data files (but keep .dvc files)
+data/*
+!data/raw/
+!data/processed/
+data/raw/*
+!data/raw/*.dvc
+data/processed/*
+!data/processed/*.dvc 

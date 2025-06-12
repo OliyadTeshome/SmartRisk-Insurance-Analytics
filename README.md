@@ -60,4 +60,53 @@ python scripts/run_eda.py --config configs/eda_config.yaml
 MIT License
 
 ## Credits
-Developed by the Data Science Team at AlphaCare Insurance Solutions (ACIS). 
+Developed by the Data Science Team at AlphaCare Insurance Solutions (ACIS).
+
+## Data Version Control (DVC) Setup
+
+This project uses DVC to manage the dataset stored on Google Drive. The dataset is not stored in Git but is tracked using DVC.
+
+### Prerequisites
+
+1. Install DVC and its dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Authenticate with Google Drive:
+   - You'll need to authenticate with Google Drive the first time you pull the data
+   - Follow the prompts in your browser when running the download script
+
+### Downloading the Data
+
+You can download the data using either of these methods:
+
+1. Using the shell script:
+```bash
+chmod +x scripts/download_data.sh
+./scripts/download_data.sh
+```
+
+2. Using the Python script:
+```bash
+python scripts/download_data.py
+```
+
+The data will be downloaded to `data/raw/insurance_data.csv`.
+
+### Data Structure
+
+```
+data/
+├── raw/           # Original, immutable data
+│   └── insurance_data.csv
+└── processed/     # Cleaned and processed data
+```
+
+### Working with DVC
+
+- To update the data: `dvc pull`
+- To check data status: `dvc status`
+- To see data changes: `dvc diff`
+
+Note: The actual data files are gitignored, but the `.dvc` files are tracked in Git to maintain version control of the data. 

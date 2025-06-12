@@ -7,4 +7,6 @@ xgboost
 pyyaml
 loguru
 jupyter
-pytest 
+pytest
+dvc[gdrive]>=3.50.0
+gdown>=4.7.1 
