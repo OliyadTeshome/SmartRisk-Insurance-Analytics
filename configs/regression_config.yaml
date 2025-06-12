@@ -1,0 +1,7 @@
+data_path: data/raw/insurance_data.csv
+zipcode_col: zipcode
+X_cols:
+  - age
+  - vehicle_age
+  - claim_ratio
+y_col: claim_amount 

@@ -1,0 +1,10 @@
+data_path: data/raw/insurance_data.csv
+ab_tests:
+  - group_col: gender
+    value_col: claim_amount
+    group_a: male
+    group_b: female
+  - group_col: province
+    value_col: claim_amount
+    group_a: Gauteng
+    group_b: Western Cape 

@@ -1,0 +1,5 @@
+data_path: data/raw/insurance_data.csv
+eda_columns:
+  - age
+  - premium
+  - claim_amount 
