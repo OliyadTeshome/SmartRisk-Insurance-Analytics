@@ -8,5 +8,5 @@ pyyaml
 loguru
 jupyter
 pytest
-dvc[gdrive]>=3.50.0
+dvc[gdrive]>=2.58.2,<3.0.0
 gdown>=4.7.1 
