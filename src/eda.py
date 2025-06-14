@@ -15,11 +15,14 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Set up logging
+log_dir = Path('reports/logs')
+log_dir.mkdir(parents=True, exist_ok=True)
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('reports/logs/eda.log'),
+        logging.FileHandler(log_dir / 'eda.log'),
         logging.StreamHandler()
     ]
 )
@@ -192,6 +195,48 @@ def generate_summary_report(df: pd.DataFrame, config: Dict) -> None:
     with open(summary_path, 'w') as f:
         yaml.dump(summary, f, default_flow_style=False)
     logger.info(f"Saved EDA summary report to {summary_path}")
+
+def eda_summary(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Generate a summary of the dataset including basic statistics.
+    
+    Args:
+        df (pd.DataFrame): Input dataframe
+        
+    Returns:
+        pd.DataFrame: Summary statistics
+    """
+    summary = pd.DataFrame({
+        'count': df.count(),
+        'mean': df.mean(numeric_only=True),
+        'std': df.std(numeric_only=True),
+        'min': df.min(numeric_only=True),
+        '25%': df.quantile(0.25, numeric_only=True),
+        '50%': df.quantile(0.5, numeric_only=True),
+        '75%': df.quantile(0.75, numeric_only=True),
+        'max': df.max(numeric_only=True)
+    })
+    return summary
+
+def plot_distribution(df: pd.DataFrame, column: str, save_path: str = None) -> None:
+    """
+    Plot the distribution of a numerical column.
+    
+    Args:
+        df (pd.DataFrame): Input dataframe
+        column (str): Column name to plot
+        save_path (str, optional): Path to save the plot. If None, plot is displayed.
+    """
+    plt.figure(figsize=(10, 6))
+    sns.histplot(data=df, x=column, kde=True)
+    plt.title(f'Distribution of {column}')
+    plt.tight_layout()
+    
+    if save_path:
+        plt.savefig(save_path)
+        plt.close()
+    else:
+        plt.show()
 
 def main():
     """Main function to run the complete EDA pipeline."""
