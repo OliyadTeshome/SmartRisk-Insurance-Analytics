@@ -1,5 +1,40 @@
 data_path: data/raw/insurance_data.csv
-eda_columns:
-  - age
-  - premium
-  - claim_amount 
+
+# Column definitions
+categorical_columns:
+  - Province
+  - Gender
+  - MaritalStatus
+  - VehicleType
+  - VehicleMake
+  - VehicleModel
+  - AccountType
+  - Bank
+  - NewVehicle
+
+numerical_columns:
+  - Age
+  - TotalPremium
+  - TotalClaims
+  - CapitalOutstanding
+  - TransactionMonth
+
+# Analysis settings
+missing_threshold: 0.60  # Drop columns with >60% missing values
+imputation:
+  categorical: mode
+  numerical: median
+
+# Plot settings
+plot_settings:
+  style: seaborn
+  context: paper
+  palette: deep
+  figure_size: [12, 8]
+  dpi: 300
+
+# Output paths
+output_paths:
+  plots: reports/figures/
+  summaries: reports/summaries/
+  logs: reports/logs/ 
