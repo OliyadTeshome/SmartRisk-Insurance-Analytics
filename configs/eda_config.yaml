@@ -1,40 +1,43 @@
-data_path: data/raw/insurance_data.csv
+def load_eda_config(config_path='eda_config.yaml'):
+    """
+    Load and parse the EDA configuration from a YAML file.
+    
+    Args:
+        config_path (str): Path to the YAML configuration file
+        
+    Returns:
+        dict: Dictionary containing lists of columns by category
+    """
+    import yaml
+    
+    try:
+        with open(config_path, 'r') as file:
+            config = yaml.safe_load(file)
+            
+        # Extract column categories from config
+        column_categories = config.get('columns', {})
+        
+        # Create dictionary with column lists
+        column_dict = {
+            'numerical': column_categories.get('numerical', []),
+            'categorical': column_categories.get('categorical', []),
+            'id_or_transactional': column_categories.get('id_or_transactional', []),
+            'targets': column_categories.get('targets', [])
+        }
+        
+        return column_dict
+        
+    except FileNotFoundError:
+        print(f"Error: Configuration file not found at {config_path}")
+        return None
+    except yaml.YAMLError as e:
+        print(f"Error parsing YAML file: {e}")
+        return None
 
-# Column definitions
-categorical_columns:
-  - Province
-  - Gender
-  - MaritalStatus
-  - VehicleType
-  - VehicleMake
-  - VehicleModel
-  - AccountType
-  - Bank
-  - NewVehicle
-
-numerical_columns:
-  - Age
-  - TotalPremium
-  - TotalClaims
-  - CapitalOutstanding
-  - TransactionMonth
-
-# Analysis settings
-missing_threshold: 0.60  # Drop columns with >60% missing values
-imputation:
-  categorical: mode
-  numerical: median
-
-# Plot settings
-plot_settings:
-  style: seaborn
-  context: paper
-  palette: deep
-  figure_size: [12, 8]
-  dpi: 300
-
-# Output paths
-output_paths:
-  plots: reports/figures/
-  summaries: reports/summaries/
-  logs: reports/logs/ 
+# Example usage:
+# column_categories = load_eda_config()
+# if column_categories:
+#     print("Numerical columns:", column_categories['numerical'])
+#     print("Categorical columns:", column_categories['categorical'])
+#     print("ID/Transactional columns:", column_categories['id_or_transactional'])
+#     print("Target columns:", column_categories['targets'])
