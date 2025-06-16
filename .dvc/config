@@ -1,4 +1,6 @@
 [core]
-    remote = gdrive
+    remote = localstorage
 ['remote "gdrive"']
     url = gdrive://root/insurance_data
+['remote "localstorage"']
+    url = ../dvc_storage
