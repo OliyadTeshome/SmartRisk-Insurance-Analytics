@@ -9,4 +9,6 @@ loguru
 jupyter
 pytest
 dvc[gdrive]>=2.58.2,<3.0.0
-gdown>=4.7.1 
+gdown>=4.7.1
+shap
+lime 
