@@ -60,9 +60,9 @@ data/
 
 # Reports
 # reports/
-reports/plots.png
-reports/Correlation heatmaps of premium, claims, and sum insured.png
-reports/SHAP summary plot.png
+# reports/plots.png
+# reports/Correlation heatmaps of premium, claims, and sum insured.png
+# reports/SHAP summary plot.png
 
 # Logs
 *.log
