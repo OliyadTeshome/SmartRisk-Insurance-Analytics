@@ -59,7 +59,10 @@ coverage.xml
 data/
 
 # Reports
-reports/
+# reports/
+reports/plots.png
+reports/Correlation heatmaps of premium, claims, and sum insured.png
+reports/SHAP summary plot.png
 
 # Logs
 *.log
