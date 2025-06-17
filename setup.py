@@ -5,6 +5,14 @@ setup(
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
-        # Add your project dependencies here
+        'pandas',
+        'numpy',
+        'scikit-learn',
+        'matplotlib',
+        'seaborn',
+        'xgboost',
+        'pytest',
+        'dvc[gdrive]>=2.58.2,<3.0.0',
+        'gdown>=4.7.1',
     ],
 ) 

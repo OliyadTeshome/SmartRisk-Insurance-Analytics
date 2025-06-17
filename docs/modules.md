@@ -7,4 +7,4 @@
 - **regression_model.py**: Linear regression by zip code.
 - **premium_predictor.py**: ML model to predict premium values.
 - **risk_segmentation.py**: Identify low-risk vs high-risk customer segments.
-- **utils.py**: Logging, config handling, and helpers. 
+- **utils.py**: Plotting, statistical tests, and helpers. 

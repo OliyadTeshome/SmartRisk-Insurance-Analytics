@@ -6,7 +6,6 @@
 - **matplotlib**: Data visualization
 - **seaborn**: Statistical data visualization
 - **xgboost**: Gradient boosting machine learning
-- **pyyaml**: YAML config file parsing
-- **loguru**: Advanced logging
-- **jupyter**: Interactive notebooks
-- **pytest**: Unit testing 
+- **pytest**: Unit testing
+- **dvc[gdrive]**: Data version control with Google Drive remote
+- **gdown**: Download files from Google Drive 

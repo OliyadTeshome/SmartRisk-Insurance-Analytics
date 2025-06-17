@@ -13,10 +13,11 @@ How can ACIS leverage data science to accurately profile risk, test business hyp
 SmartRisk-Insurance-Analytics/
 │
 ├── data/           # Raw and processed datasets
-├── notebooks/      # Jupyter notebooks for EDA, modeling, and reporting
-├── src/            # Python modules (data processing, modeling, etc.)
-├── scripts/        # CLI scripts for each stage
-├── tests/          # Unit tests for key modules
+├── dvc_storage/    # DVC-tracked data files ([README](dvc_storage/README.md))
+├── notebooks/      # Jupyter notebooks for EDA, modeling, and reporting ([README](notebooks/README.md))
+├── src/            # Python modules (data processing, modeling, etc.) ([README](src/README.md))
+├── scripts/        # CLI scripts for each stage ([README](scripts/README.md))
+├── tests/          # Unit tests for key modules ([README](tests/README.md))
 ├── reports/        # Results, visuals, deliverables
 ├── configs/        # YAML/JSON config files
 ├── docs/           # Documentation
@@ -54,7 +55,7 @@ python scripts/run_eda.py --config configs/eda_config.yaml
 
 ## Dependencies
 - Python 3.8+
-- pandas, numpy, scikit-learn, matplotlib, seaborn, xgboost, pyyaml, loguru, jupyter, pytest
+- pandas, numpy, scikit-learn, matplotlib, seaborn, xgboost, pytest, dvc[gdrive], gdown
 
 ## License
 MIT License
